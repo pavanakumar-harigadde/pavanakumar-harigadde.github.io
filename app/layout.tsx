@@ -4,11 +4,12 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pavanakumar-devadiga.vercel.app'),
+  metadataBase: new URL('https://www.pavanakumar.me'),
   title: 'Pavanakumar Devadiga — Software Development Engineer',
   description:
     'Portfolio of Pavanakumar Devadiga, MCA student and aspiring Software Development Engineer. Machine Learning, Python, SQL, and full-stack project experience.',
@@ -59,6 +60,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
     </html>
   );
 }
